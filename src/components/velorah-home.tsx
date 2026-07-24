@@ -11,7 +11,7 @@ const COMPANIES = [
   { name: 'doublespeed.ai', role: 'gtm ops', desc: 'ai content and intelligence automation.', tag: 'prev', url: 'https://doublespeed.ai' },
   { name: 'sprk', role: 'advisor', desc: 'ai edtech and learning software.', tag: 'active', url: 'https://sprk.co' },
   { name: 'aster', role: 'advisor', desc: "ai women's health and wellness app.", tag: 'active', url: 'https://aster.fit' },
-  { name: 'dart', role: 'advisor', desc: 'ai automation and consulting agency.', tag: 'active', url: 'https://dart.ceo' },
+  { name: 'dart', role: 'advisor', desc: 'ai intelligence and consulting software.', tag: 'active', url: 'https://dart.ceo' },
 ];
 
 const TRACTION = [
