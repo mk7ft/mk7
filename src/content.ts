@@ -27,11 +27,11 @@ export type Media = { name: string; url: string };
 
 export const PROFILE = {
   name: { first: "Muhammad", last: "Kamil" },
-  bio: [
-    "led extraordinary ventures at unreasonable ages in media and gaming.",
-    "moved to the states and obsessively studied ai and content creation.",
-    "now i run growth and product at venture-backed startups (a16z + yc).",
-  ],
+  // The pitch: what I do + who for. This is the hero line under the name.
+  pitch: "growth & product for venture-backed startups",
+  pitchNote: "(a16z + yc)",
+  // One credibility line from the past — de-emphasized, phased out over time.
+  past: "before 21: $1k → $500m in entertainment & media.",
   location: "tampa, fl",
   email: "muhammadkamilali@gmail.com",
   resume:
@@ -58,36 +58,11 @@ export const COMPANIES: Company[] = [
   { name: "dart", role: "advisor", desc: "ai intelligence and consulting software.", tag: "active", url: "https://dart.ceo" },
 ];
 
-export const TRACTION: Stat[] = [
+// Proof — the results the growth/product work has produced.
+export const RESULTS: Stat[] = [
   { n: "30M+", label: "impressions generated", sub: [{ text: "across all social campaigns" }] },
   { n: "$100K+", label: "raised", sub: [{ text: "sponsorships & partnerships" }] },
   { n: "250k+", label: "community", sub: [{ text: "built organically from scratch" }] },
-];
-
-export const SIDE_QUESTS: Stat[] = [
-  {
-    n: "17M+", label: "visitors served",
-    sub: [
-      { text: "saudi red crescent", href: "https://en.wikipedia.org/wiki/Saudi_Red_Crescent_Authority" },
-      { text: " - emt & translator" },
-    ],
-  },
-  {
-    n: "$150K+", label: "closed <70 days",
-    sub: [
-      { text: "vivint", href: "https://vivint.com" },
-      { text: " - #1 of 40 reps" },
-    ],
-  },
-  {
-    n: "50k+", label: "customers managed",
-    sub: [
-      { text: "aker", href: "https://akersweetsusa.com" },
-      { text: " & " },
-      { text: "bekdash", href: "https://bekdash.us" },
-      { text: " - $3M+ revenue" },
-    ],
-  },
 ];
 
 export const MEDIA: Media[] = [

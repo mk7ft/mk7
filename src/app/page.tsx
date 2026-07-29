@@ -4,8 +4,7 @@ import {
   LOGO,
   CAL,
   COMPANIES,
-  TRACTION,
-  SIDE_QUESTS,
+  RESULTS,
   MEDIA,
   type Stat,
   type SubPart,
@@ -70,13 +69,10 @@ export default function Home() {
 
         <main>
           <aside className="identity r1">
-            <div>
+            <div className="lead">
               <h1>{PROFILE.name.first}<br /><em>{PROFILE.name.last}</em></h1>
-            </div>
-            <div className="bio lc">
-              {PROFILE.bio.map((line) => (
-                <p key={line}>{line}</p>
-              ))}
+              <p className="pitch lc">{PROFILE.pitch} <span className="note">{PROFILE.pitchNote}</span></p>
+              <p className="past lc">{PROFILE.past}</p>
             </div>
             <div className="cta">
               <a className="btn btn-ghost" href={PROFILE.resume} target="_blank" rel="noopener noreferrer">download résumé ↓</a>
@@ -85,13 +81,10 @@ export default function Home() {
           </aside>
 
           <div className="right r2">
-            <div className="statstack">
-              <StatGroup title="traction" items={TRACTION} />
-              <StatGroup title="side quests" items={SIDE_QUESTS} />
-            </div>
+            <StatGroup title="results" items={RESULTS} />
 
             <div>
-              <div className="label">work</div>
+              <div className="label">building &amp; advising</div>
               <div className="work-grid">
                 {COMPANIES.map((co) => (
                   <a key={co.name} className="wcard" href={co.url} target="_blank" rel="noopener noreferrer">

@@ -20,7 +20,7 @@ const instrument = Instrument_Serif({
 });
 
 const description =
-  "growth and product operator. 30m+ impressions, $100k+ raised, 250k+ community built from scratch. now at venture-backed startups (a16z + yc).";
+  "growth & product for venture-backed startups (a16z + yc). 30m+ impressions, $100k+ raised, 250k+ community built. before 21: $1k → $500m in entertainment & media.";
 
 export const metadata: Metadata = {
   title: "Muhammad Kamil",
