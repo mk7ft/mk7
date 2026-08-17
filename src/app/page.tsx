@@ -240,7 +240,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <a className="cue" href="#network">
+          <a className="cue" href={`#${SECTIONS[0].id}`}>
             <span>how i add value</span>
             <ScrollArrow />
           </a>

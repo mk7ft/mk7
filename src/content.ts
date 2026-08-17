@@ -70,53 +70,8 @@ export const CAL = {
 
 export const SECTIONS: Section[] = [
   {
-    id: "network",
-    num: "1",
-    title: "access + network",
-    body: [
-      { kind: "lead", text: "i'm connected to over" },
-      { kind: "big", n: "1,000+" },
-      {
-        kind: "tags",
-        items: [
-          "startup founders",
-          "entrepreneurs",
-          "vc and wealth funds",
-          "design and creative agencies",
-          "IT and cybersecurity firms",
-          "technical teams",
-          "content creators",
-          "D1 athletes",
-          "high-net-worth families",
-        ],
-      },
-      { kind: "lead", text: "and have direct access to" },
-      { kind: "big", n: "25,000+", label: "students" },
-      {
-        kind: "text",
-        runs: [{ text: "USF · UT · UF · UCF · UM · FSU and other major FL universities" }],
-      },
-      {
-        kind: "stats",
-        label: "my direct impact (overall):",
-        color: "yellow",
-        items: [
-          { n: "$50M+", label: "in revenue" },
-          { n: "$500K+", label: "in profits" },
-          { n: "8M+", label: "users (~25% paid)" },
-          { n: "10M+", label: "in social reach" },
-        ],
-      },
-    ],
-    role: {
-      actions: ["lead ops", "connect", "scout", "outsource"],
-      impact: "world class talent",
-      aside: "and reduce overhead",
-    },
-  },
-  {
     id: "advisory",
-    num: "2",
+    num: "1",
     title: "consulting + advisory",
     body: [
       { kind: "lead", text: "i've built, consulted, studied, sold, brokered, and scouted startups and businesses in" },
@@ -162,6 +117,50 @@ export const SECTIONS: Section[] = [
       lead: "consult on",
       actions: ["ai automations", "gtm (growth + product)"],
       impact: "3x your revenue/reach",
+    },
+  },
+  {
+    id: "network",
+    num: "2",
+    title: "access + network",
+    body: [
+      { kind: "lead", text: "i'm connected to over" },
+      { kind: "big", n: "1,000+" },
+      {
+        kind: "tags",
+        items: [
+          "startup founders",
+          "entrepreneurs",
+          "vc and wealth funds",
+          "design and creative agencies",
+          "IT and cybersecurity firms",
+          "technical teams",
+          "content creators",
+          "D1 athletes",
+          "high-net-worth families",
+        ],
+      },
+      { kind: "lead", text: "and have direct access to" },
+      { kind: "big", n: "25,000+", label: "students" },
+      {
+        kind: "text",
+        runs: [{ text: "USF · UT · UF · UCF · UM · FSU and other major FL universities" }],
+      },
+      {
+        kind: "stats",
+        label: "my direct impact (overall):",
+        color: "yellow",
+        items: [
+          { n: "$50M+", label: "in revenue" },
+          { n: "$500K+", label: "in profits" },
+          { n: "8M+", label: "users (~25% paid)" },
+          { n: "10M+", label: "in social reach" },
+        ],
+      },
+    ],
+    role: {
+      actions: ["lead ops", "connect", "scout", "outsource world class talent"],
+      impact: "reduce overhead",
     },
   },
   {
