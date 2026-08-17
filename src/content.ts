@@ -34,8 +34,6 @@ export const PROFILE = {
   past: "before 21: $1k → $500m in entertainment & media.",
   location: "tampa, fl",
   email: "muhammadkamilali@gmail.com",
-  resume:
-    "https://drive.google.com/file/d/11iyZC-HZXZPrOEiP8cf4sAi-jgPyimob/view?usp=sharing",
   linkedin: { url: "https://linkedin.com/in/mk7ft", note: "(11k+ followers)" },
   copyright: "© 2026 mk7",
 } as const;

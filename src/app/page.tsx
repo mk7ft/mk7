@@ -75,7 +75,6 @@ export default function Home() {
               <p className="past lc">{PROFILE.past}</p>
             </div>
             <div className="cta">
-              <a className="btn btn-ghost" href={PROFILE.resume} target="_blank" rel="noopener noreferrer">download résumé ↓</a>
               <button className="btn btn-primary" {...calAttrs}>book a call ↗</button>
             </div>
           </aside>
