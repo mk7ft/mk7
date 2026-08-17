@@ -93,9 +93,8 @@ export const SECTIONS: Section[] = [
       { kind: "lead", text: "and have direct access to" },
       { kind: "big", n: "25,000+", label: "students" },
       {
-        kind: "tags",
-        items: ["USF", "UT", "UF", "UCF", "UM", "FSU"],
-        suffix: "and other major FL universities",
+        kind: "text",
+        runs: [{ text: "USF · UT · UF · UCF · UM · FSU and other major FL universities" }],
       },
       {
         kind: "stats",
