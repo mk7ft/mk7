@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Caveat, Patrick_Hand } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-display",
+// Chalk handwriting: Caveat for headlines, Patrick Hand for body copy.
+const caveat = Caveat({
+  variable: "--font-chalk-head",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
-const instrument = Instrument_Serif({
-  variable: "--font-instrument",
+const patrick = Patrick_Hand({
+  variable: "--font-chalk-body",
   subsets: ["latin"],
   weight: "400",
-  style: ["normal", "italic"],
   display: "swap",
 });
 
 const description =
-  "growth & product for venture-backed startups (a16z + yc). 30m+ impressions, $100k+ raised, 250k+ community built. before 21: $1k → $500m in entertainment & media.";
+  "gtm and ai automations. advisory for startups, businesses, and venture funds ($1M -> $3B). prev ai ugc @ doublespeed (a16z). growth, design, and product consultant (yc, a16z, speedrun, 10x).";
 
 export const metadata: Metadata = {
   title: "Muhammad Kamil",
@@ -57,7 +57,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${instrument.variable}`}>
+      <body className={`${caveat.variable} ${patrick.variable}`}>
         {children}
         <SpeedInsights />
         <Analytics />

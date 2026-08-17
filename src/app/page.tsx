@@ -1,14 +1,4 @@
-import {
-  PROFILE,
-  BG_IMAGE,
-  LOGO,
-  CAL,
-  COMPANIES,
-  RESULTS,
-  MEDIA,
-  type Stat,
-  type SubPart,
-} from "@/content";
+import { PROFILE, BIO, LOGO, CAL, SECTIONS, type Run } from "@/content";
 import CalInit from "@/components/cal-init";
 
 // data-cal-* attributes the CalInit effect binds the popup to.
@@ -18,106 +8,145 @@ const calAttrs = {
   "data-cal-config": CAL.config,
 };
 
-function Sub({ parts }: { parts: SubPart[] }) {
+/* ── chalk SVG filters (referenced by url(#chalk*) from CSS/SVG) ── */
+function ChalkDefs() {
+  return (
+    <svg aria-hidden="true" width="0" height="0" style={{ position: "absolute" }}>
+      <defs>
+        <filter id="chalk" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="2" seed="7" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" />
+        </filter>
+        <filter id="chalk-soft" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="2" />
+        </filter>
+      </defs>
+    </svg>
+  );
+}
+
+/* ── hand-drawn scribbles ── */
+function Underline({ className = "" }: { className?: string }) {
+  return (
+    <svg className={`scr ${className}`} viewBox="0 0 300 22" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M5 12 C 55 6, 110 17, 165 11 S 255 8, 295 13" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" filter="url(#chalk)" />
+      <path d="M10 17 C 70 12, 140 19, 205 14 S 268 12, 291 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5" filter="url(#chalk-soft)" />
+    </svg>
+  );
+}
+
+function NumCircle({ n }: { n: string }) {
+  return (
+    <span className="numwrap" aria-hidden="true">
+      <svg viewBox="0 0 90 90">
+        <path
+          d="M46 7 C 68 5, 84 19, 84 43 C 84 67, 68 84, 45 83 C 21 82, 6 66, 7 42 C 8 19, 25 9, 46 7 Z"
+          fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" filter="url(#chalk)"
+        />
+        <path
+          d="M44 11 C 63 9, 79 21, 80 42 C 81 64, 66 80, 45 79 C 24 78, 11 63, 11 43 C 11 23, 26 13, 44 11 Z"
+          fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" opacity="0.45" filter="url(#chalk-soft)"
+        />
+      </svg>
+      <span className="num">{n}</span>
+    </span>
+  );
+}
+
+function ScrollArrow() {
+  return (
+    <svg className="scr arrow" viewBox="0 0 40 64" aria-hidden="true">
+      <path d="M20 4 C 16 22, 24 36, 20 54" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" filter="url(#chalk)" />
+      <path d="M10 45 C 13 49, 17 52, 20 57 C 23 52, 27 48, 30 45" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" filter="url(#chalk)" />
+    </svg>
+  );
+}
+
+function Sparkle({ className = "" }: { className?: string }) {
+  return (
+    <svg className={`scr doodle ${className}`} viewBox="0 0 40 40" aria-hidden="true">
+      <path d="M20 4 L20 36 M4 20 L36 20 M9 9 L31 31 M31 9 L9 31" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" filter="url(#chalk)" />
+    </svg>
+  );
+}
+
+/* ── text runs (yellow-chalk highlights) ── */
+function Runs({ parts }: { parts: Run[] }) {
   return (
     <>
       {parts.map((p, i) =>
-        p.href ? (
-          <a key={i} href={p.href} target="_blank" rel="noopener noreferrer">{p.text}</a>
-        ) : (
-          <span key={i}>{p.text}</span>
-        ),
+        p.hi ? <em className="hi" key={i}>{p.text}</em> : <span key={i}>{p.text}</span>,
       )}
     </>
   );
 }
 
-function StatGroup({ title, items }: { title: string; items: Stat[] }) {
-  return (
-    <div>
-      <div className="label">{title}</div>
-      <div className="stats">
-        {items.map((s) => (
-          <div className="stat" key={s.n}>
-            <div className="n">{s.n}</div>
-            <div className="t lc">{s.label}</div>
-            <div className="s lc"><Sub parts={s.sub} /></div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
-    <div className="velorah">
-      <img className="bg-image" src={BG_IMAGE} alt="" aria-hidden="true" />
-      <div className="scrim" />
+    <div className="chalk">
+      <ChalkDefs />
+      <div className="board" aria-hidden="true" />
+      <div className="grain" aria-hidden="true" />
 
-      <div className="shell">
-        <nav className="r1">
-          <a className="logo" href="https://mk7ft.com" aria-label="MK7 — home">
-            <img src={LOGO} alt="MK7" />
+      <div className="page">
+        <nav>
+          <a className="logo" href="https://mk7ft.com" aria-label="MK7 — home"><img src={LOGO} alt="MK7" /></a>
+          <a className="nav-link" href={PROFILE.linkedin.url} target="_blank" rel="noopener noreferrer">
+            LinkedIn <span className="li-note">{PROFILE.linkedin.note}</span>
           </a>
-          <div className="nav-r">
-            <a href={PROFILE.linkedin.url} target="_blank" rel="noopener noreferrer">
-              LinkedIn<span className="li-note">{PROFILE.linkedin.note}</span>
-            </a>
-          </div>
         </nav>
 
-        <main>
-          <aside className="identity r1">
-            <div className="lead">
-              <h1>{PROFILE.name.first}<br /><em>{PROFILE.name.last}</em></h1>
-              <p className="pitch lc">{PROFILE.pitch} <span className="note">{PROFILE.pitchNote}</span></p>
-              <p className="past lc">{PROFILE.past}</p>
-            </div>
+        <header className="hero">
+          <Sparkle className="d1" />
+          <Sparkle className="d2" />
+          <div className="hero-mid">
+            <h1>{PROFILE.name}</h1>
+            <Underline className="under" />
+            <p className="bio"><Runs parts={BIO} /></p>
             <div className="cta">
-              <button className="btn btn-primary" {...calAttrs}>book a call ↗</button>
-            </div>
-          </aside>
-
-          <div className="right r2">
-            <StatGroup title="results" items={RESULTS} />
-
-            <div>
-              <div className="label">building &amp; advising</div>
-              <div className="work-grid">
-                {COMPANIES.map((co) => (
-                  <a key={co.name} className="wcard" href={co.url} target="_blank" rel="noopener noreferrer">
-                    <div className="h">
-                      <span className="nm lc">{co.name}</span>
-                      <span className="badge lc">{co.tag}</span>
-                    </div>
-                    <div className="role lc">{co.role}</div>
-                    <div className="desc lc">{co.desc}</div>
-                  </a>
-                ))}
-              </div>
+              <button className="btn-chalk" {...calAttrs}>book a call ↗</button>
             </div>
           </div>
+          <a className="cue" href="#network">
+            <span>how i add value</span>
+            <ScrollArrow />
+          </a>
+        </header>
+
+        <main>
+          {SECTIONS.map((s) => (
+            <section key={s.id} id={s.id}>
+              <div className="sec-head">
+                <NumCircle n={s.num} />
+                <h2>
+                  {s.title} <span className="emoji">{s.emoji}</span>
+                  {s.note && <span className="note"> {s.note}</span>}
+                </h2>
+              </div>
+              {s.body.map((para, i) => (
+                <p className="body" key={i}><Runs parts={para} /></p>
+              ))}
+              <p className="will">
+                {s.will}
+                <Underline className="will-under" />
+              </p>
+            </section>
+          ))}
+
+          <section className="outro">
+            <p>
+              if you&apos;d like to work with me,{" "}
+              <a href={`mailto:${PROFILE.email}`}>shoot me a message</a> or book via{" "}
+              <button className="cal-link" {...calAttrs}>{CAL.display}</button>.
+            </p>
+          </section>
         </main>
 
-        <footer className="r3">
-          <div className="meta">
-            <a className="lc" href={`mailto:${PROFILE.email}`}>say hi ↗</a>
-            <span className="lc">
-              <svg className="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              {PROFILE.location}
-            </span>
-            <span className="lc">{PROFILE.copyright}</span>
-          </div>
-          <div className="seen">
-            <span className="l">as seen in</span>
-            {MEDIA.map((m) => (
-              <a key={m.name} href={m.url} target="_blank" rel="noopener noreferrer">{m.name}</a>
-            ))}
-          </div>
+        <footer>
+          <a href={`mailto:${PROFILE.email}`}>say hi ↗</a>
+          <span>{PROFILE.location}</span>
+          <span>{PROFILE.copyright}</span>
         </footer>
       </div>
 
