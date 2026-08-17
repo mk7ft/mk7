@@ -70,11 +70,11 @@ function NumCircle({ n }: { n: string }) {
   );
 }
 
-function RoleArrow() {
+function RoleEquals() {
   return (
-    <svg className="scr role-arrow" viewBox="0 0 64 44" aria-hidden="true">
-      <path pathLength={1} d="M4 34 C 18 14, 38 12, 55 21" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" filter="url(#chalk)" />
-      <path pathLength={1} d="M46 12 C 50 16, 53 19, 57 22 C 52 24, 48 27, 44 30" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#chalk)" />
+    <svg className="scr role-eq" viewBox="0 0 40 30" aria-hidden="true">
+      <path pathLength={1} d="M5 10 C 14 8.5, 26 10.5, 35 9" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" filter="url(#chalk)" />
+      <path pathLength={1} d="M5 21 C 15 19.5, 27 21.5, 35 20" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" filter="url(#chalk)" />
     </svg>
   );
 }
@@ -267,12 +267,13 @@ export default function Home() {
                   <div className="role">
                     <span className="role-label">my role:</span>
                     {s.role.lead && <span className="role-lead">{s.role.lead}</span>}
-                    <span className="rpills">
-                      {s.role.actions.map((a) => (
-                        <span className="rpill" key={a}>{a}</span>
-                      ))}
-                    </span>
-                    <RoleArrow />
+                    {s.role.actions.map((a, ai) => (
+                      <Fragment key={a}>
+                        {ai > 0 && <span className="plus" aria-hidden="true">+</span>}
+                        <span className={`rpill${ai % 2 ? " alt" : ""}`}>{a}</span>
+                      </Fragment>
+                    ))}
+                    <RoleEquals />
                     <em className="role-impact">
                       {s.role.impact}
                       <Underline className="under-i" />

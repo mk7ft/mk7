@@ -45,8 +45,9 @@ export const FEATURED = ["Forbes", "TechCrunch", "Business Insider", "ESPN", "Fo
 
 // Hero bio — the 5-second pitch, one entry per line.
 export const BIO: Run[][] = [
+  [{ text: "engineering gtm and ai automations." }],
   [
-    { text: "engineering gtm and ai automations. advisory for startups, businesses, and venture funds " },
+    { text: "advisory for startups, businesses, and venture funds " },
     { text: "($1M -> $3B)", hi: true },
     { text: "." },
   ],
@@ -169,7 +170,7 @@ export const SECTIONS: Section[] = [
     title: "partnership + co-founding",
     note: "(rarely)",
     body: [
-      { kind: "lead", text: "if you have an idea and need help" },
+      { kind: "lead", text: "if you have an idea and need help with" },
       {
         kind: "tags",
         items: ["gtm", "ops", "hiring", "finance", "ai", "branding", "product"],
@@ -184,7 +185,13 @@ export const SECTIONS: Section[] = [
       {
         kind: "text",
         runs: [
-          { text: "i have a good understanding of what, how, and where to build. i'll be " },
+          { text: "i have a good understanding of what, how, and where to build." },
+        ],
+      },
+      {
+        kind: "text",
+        runs: [
+          { text: "i'll be " },
           { text: "the unfair advantage", hi: true },
           { text: " when building your company." },
         ],
