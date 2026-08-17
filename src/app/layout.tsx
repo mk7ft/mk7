@@ -22,7 +22,7 @@ const patrick = Patrick_Hand({
 // Short enough to stay on one line in link previews.
 const title = "Muhammad Kamil - ai automations + gtm.";
 const description =
-  "engineering gtm and ai automations. advisory for startups, businesses, and venture funds ($1M -> $3B). growth, design, product, and ugc consultant (yc, a16z, speedrun, 10x).";
+  "engineering ai automations + gtm. advisory for startups, businesses, and venture funds ($1M -> $3B). growth, design, product, and ugc consultant (yc, a16z, speedrun, 10x).";
 
 export const metadata: Metadata = {
   title,
@@ -39,14 +39,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     // ?v= busts platform link-preview caches when the image changes
-    images: [{ url: "/og-image.jpg?v=3", width: 1200, height: 630, alt: "Muhammad Kamil" }],
+    images: [{ url: "/og-image.jpg?v=4", width: 1200, height: 630, alt: "Muhammad Kamil" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
     creator: "@mk7ft",
-    images: ["/og-image.jpg?v=3"],
+    images: ["/og-image.jpg?v=4"],
   },
   robots: {
     index: true,

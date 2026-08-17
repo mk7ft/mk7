@@ -45,7 +45,7 @@ export const FEATURED = ["Forbes", "TechCrunch", "Business Insider", "ESPN", "Fo
 
 // Hero bio — the 5-second pitch, one entry per line.
 export const BIO: Run[][] = [
-  [{ text: "engineering gtm and ai automations." }],
+  [{ text: "engineering ai automations + gtm." }],
   [
     { text: "advisory for startups, businesses, and venture funds " },
     { text: "($1M -> $3B)", hi: true },
