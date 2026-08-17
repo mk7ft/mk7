@@ -65,6 +65,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .chalk h1{font-family:var(--font-chalk-head);font-weight:700;font-size:clamp(3.6rem,10vw,7rem);line-height:1.02;color:var(--chalk);transform:rotate(-1deg)}
 .chalk .under{width:min(30rem,78%);height:1.15rem;margin:.5rem auto 0;color:var(--yellow);opacity:.85}
 .chalk .bio{margin-top:1.7rem;font-size:clamp(1.08rem,1.5vw,1.3rem);line-height:1.8;color:var(--soft);max-width:56ch}
+.chalk .bio-line{display:block}
+.chalk .bio-line+.bio-line{margin-top:.3rem}
 .chalk .hi{font-style:normal;color:var(--yellow)}
 .chalk .hi-blue{font-style:normal;color:var(--blue)}
 .chalk .hi-pink{font-style:normal;color:var(--pink)}
@@ -87,6 +89,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
 /* ── sections ── */
 .chalk section{padding:clamp(2.6rem,6vh,4.2rem) 0;scroll-margin-top:1.5rem}
+.chalk .divider{width:min(52rem,100%);height:1rem;margin:0 auto;color:rgba(237,234,225,0.34)}
 .chalk .sec-head{display:flex;align-items:center;gap:1.1rem;margin-bottom:1.4rem}
 .chalk .numwrap{position:relative;flex-shrink:0;width:3.4rem;height:3.4rem;color:var(--chalk)}
 .chalk .numwrap svg{position:absolute;inset:0;width:100%;height:100%}

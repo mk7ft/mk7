@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { PROFILE, BIO, LOGO, CAL, SECTIONS, type Run, type Block } from "@/content";
 import CalInit from "@/components/cal-init";
 
@@ -59,6 +60,15 @@ function WillArrow() {
     <svg className="scr will-arrow" viewBox="0 0 64 44" aria-hidden="true">
       <path d="M4 34 C 18 14, 38 12, 55 21" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" filter="url(#chalk)" />
       <path d="M46 12 C 50 16, 53 19, 57 22 C 52 24, 48 27, 44 30" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#chalk)" />
+    </svg>
+  );
+}
+
+function Divider() {
+  return (
+    <svg className="scr divider" viewBox="0 0 800 16" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M6 9 C 90 5, 190 12, 300 8 S 500 11, 610 7 S 760 10, 794 8" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" filter="url(#chalk)" />
+      <path d="M40 13 C 150 10, 280 15, 420 11 S 640 13, 770 11" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" opacity="0.45" filter="url(#chalk-soft)" />
     </svg>
   );
 }
@@ -159,7 +169,11 @@ export default function Home() {
           <div className="hero-mid">
             <h1>{PROFILE.name}</h1>
             <Underline className="under" />
-            <p className="bio"><Runs parts={BIO} /></p>
+            <p className="bio">
+              {BIO.map((line, i) => (
+                <span className="bio-line" key={i}><Runs parts={line} /></span>
+              ))}
+            </p>
             <div className="cta">
               <button className="btn-chalk" {...calAttrs}>book a call ↗</button>
             </div>
@@ -171,8 +185,10 @@ export default function Home() {
         </header>
 
         <main>
-          {SECTIONS.map((s) => (
-            <section key={s.id} id={s.id}>
+          {SECTIONS.map((s, si) => (
+            <Fragment key={s.id}>
+              {si > 0 && <Divider />}
+            <section id={s.id}>
               <div className="sec-head">
                 <NumCircle n={s.num} />
                 <h2>
@@ -188,8 +204,10 @@ export default function Home() {
                 {s.will}
               </p>
             </section>
+            </Fragment>
           ))}
 
+          <Divider />
           <section className="outro">
             <p>if you&apos;d like to work with me:</p>
             <div className="outro-links">

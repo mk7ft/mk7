@@ -34,13 +34,18 @@ export const PROFILE = {
   copyright: "© 2026 mk7",
 } as const;
 
-// Hero bio — the 5-second pitch.
-export const BIO: Run[] = [
-  { text: "engineering gtm and ai automations. advisory for startups, businesses, and venture funds " },
-  { text: "($1M -> $3B)", hi: true },
-  { text: ". growth, design, product, and ugc consultant " },
-  { text: "(yc, a16z, speedrun, 10x)", color: "blue" },
-  { text: "." },
+// Hero bio — the 5-second pitch, one entry per line.
+export const BIO: Run[][] = [
+  [
+    { text: "engineering gtm and ai automations. advisory for startups, businesses, and venture funds " },
+    { text: "($1M -> $3B)", hi: true },
+    { text: "." },
+  ],
+  [
+    { text: "growth, design, product, and ugc consultant " },
+    { text: "(yc, a16z, speedrun, 10x)", color: "blue" },
+    { text: "." },
+  ],
 ];
 
 export const LOGO = "/mk-logo.png";
