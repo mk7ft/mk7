@@ -92,7 +92,39 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .chalk h2{font-family:var(--font-chalk-head);font-weight:600;font-size:clamp(2rem,4.5vw,2.9rem);line-height:1.1;color:var(--chalk)}
 .chalk h2 .emoji{font-size:.75em;text-shadow:none}
 .chalk h2 .note{font-family:var(--font-chalk-body);font-size:1.05rem;color:var(--faint);text-shadow:none}
-.chalk .body{font-size:clamp(1.05rem,1.35vw,1.22rem);line-height:1.85;color:var(--soft);max-width:64ch;margin-top:1rem}
+.chalk .body{font-size:clamp(1.05rem,1.35vw,1.22rem);line-height:1.85;color:var(--soft);max-width:64ch;margin-top:1.1rem}
+
+/* lead-in lines — short connective copy between drawn elements */
+.chalk .lead-in{font-size:clamp(1.02rem,1.3vw,1.18rem);line-height:1.6;color:var(--soft);max-width:64ch;margin-top:1.3rem}
+
+/* big chalk numbers */
+.chalk .bignum{font-family:var(--font-chalk-head);font-weight:700;font-size:clamp(2.7rem,5.5vw,4rem);line-height:1;
+  color:var(--chalk);margin-top:.4rem;transform:rotate(-0.6deg);
+  text-shadow:0 0 8px rgba(237,234,225,0.24),0 0 1px rgba(237,234,225,0.4)}
+.chalk .bignum span{font-size:clamp(1.15rem,1.9vw,1.55rem);font-weight:600;color:var(--soft);margin-left:.35rem}
+
+/* chalk tag pills — hand-drawn wonky boxes */
+.chalk .tags{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem .6rem;margin-top:.85rem;max-width:72ch}
+.chalk .tag{font-size:.95rem;line-height:1.3;color:var(--soft);border:2px solid rgba(237,234,225,0.34);
+  border-radius:225px 12px 255px 12px/12px 255px 12px 225px;padding:.14rem .72rem .2rem;transform:rotate(-0.5deg);white-space:nowrap}
+.chalk .tag:nth-child(2n){transform:rotate(0.7deg);border-radius:12px 225px 12px 255px/255px 12px 225px 12px}
+.chalk .tag:nth-child(3n){border-radius:255px 15px 225px 15px/15px 225px 15px 255px}
+.chalk .tag.accent{color:var(--yellow);border-color:rgba(240,224,162,0.5)}
+.chalk .tags .suffix{font-size:1rem;color:var(--faint)}
+.chalk .tags .aside{font-family:var(--font-chalk-head);font-weight:600;font-size:1.15rem;color:var(--pink);
+  transform:rotate(-2.5deg);margin-left:.2rem;text-shadow:0 0 6px rgba(234,198,194,0.25)}
+
+/* stat rows — numbers drawn big in colored chalk */
+.chalk .stats-row{margin-top:1.5rem}
+.chalk .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:1.3rem 1.5rem;margin-top:1.1rem;max-width:46rem}
+.chalk .stat{min-width:0}
+.chalk .stat:nth-child(2n){transform:rotate(0.5deg)}
+.chalk .stat:nth-child(2n+1){transform:rotate(-0.5deg)}
+.chalk .stat .n{font-family:var(--font-chalk-head);font-weight:700;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1;overflow-wrap:anywhere}
+.chalk .stats-grid.yellow .n{color:var(--yellow);text-shadow:0 0 8px rgba(240,224,162,0.22)}
+.chalk .stats-grid.blue .n{color:var(--blue);text-shadow:0 0 8px rgba(185,214,230,0.22)}
+.chalk .stats-grid.pink .n{color:var(--pink);text-shadow:0 0 8px rgba(234,198,194,0.22)}
+.chalk .stat .l{font-size:.98rem;color:var(--soft);margin-top:.3rem;line-height:1.4}
 .chalk .will{position:relative;display:inline-block;margin-top:1.6rem;font-family:var(--font-chalk-head);font-weight:600;
   font-size:clamp(1.4rem,2.2vw,1.75rem);line-height:1.3;color:var(--yellow);transform:rotate(-0.5deg);padding-bottom:.55rem}
 .chalk .will-under{position:absolute;left:0;bottom:0;width:100%;height:.7rem;color:var(--yellow);opacity:0.75}
@@ -128,6 +160,10 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .chalk .numwrap{width:2.8rem;height:2.8rem}
   .chalk .numwrap .num{font-size:1.55rem}
   .chalk .doodle{display:none}
+  .chalk .bignum{font-size:2.5rem}
+  .chalk .stats-grid{grid-template-columns:repeat(2,1fr);gap:1.1rem 1rem}
+  .chalk .stat .n{font-size:1.8rem}
+  .chalk .tag{font-size:.88rem;padding:.12rem .6rem .18rem}
   .chalk footer{justify-content:center;text-align:center;gap:.6rem 1.4rem}
 }
 @media (prefers-reduced-motion:reduce){

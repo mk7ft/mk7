@@ -1,4 +1,4 @@
-import { PROFILE, BIO, LOGO, CAL, SECTIONS, type Run } from "@/content";
+import { PROFILE, BIO, LOGO, CAL, SECTIONS, type Run, type Block } from "@/content";
 import CalInit from "@/components/cal-init";
 
 // data-cal-* attributes the CalInit effect binds the popup to.
@@ -82,6 +82,46 @@ function Runs({ parts }: { parts: Run[] }) {
   );
 }
 
+/* ── section board blocks ── */
+function BlockView({ b }: { b: Block }) {
+  switch (b.kind) {
+    case "lead":
+      return <p className="lead-in">{b.text}</p>;
+    case "big":
+      return (
+        <div className="bignum">
+          {b.n} <span>{b.label}</span>
+        </div>
+      );
+    case "tags":
+      return (
+        <div className="tags">
+          {b.items.map((t) => (
+            <span className={`tag${b.accent ? " accent" : ""}`} key={t}>{t}</span>
+          ))}
+          {b.suffix && <span className="suffix">{b.suffix}</span>}
+          {b.aside && <span className="aside">{b.aside}</span>}
+        </div>
+      );
+    case "stats":
+      return (
+        <div className="stats-row">
+          {b.label && <p className="lead-in">{b.label}</p>}
+          <div className={`stats-grid ${b.color ?? "yellow"}`}>
+            {b.items.map((it) => (
+              <div className="stat" key={it.n}>
+                <div className="n">{it.n}</div>
+                <div className="l">{it.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case "text":
+      return <p className="body"><Runs parts={b.runs} /></p>;
+  }
+}
+
 export default function Home() {
   return (
     <div className="chalk">
@@ -124,8 +164,8 @@ export default function Home() {
                   {s.note && <span className="note"> {s.note}</span>}
                 </h2>
               </div>
-              {s.body.map((para, i) => (
-                <p className="body" key={i}><Runs parts={para} /></p>
+              {s.body.map((b, i) => (
+                <BlockView b={b} key={i} />
               ))}
               <p className="will">
                 {s.will}
