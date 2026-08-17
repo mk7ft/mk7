@@ -20,7 +20,7 @@ const patrick = Patrick_Hand({
 });
 
 const description =
-  "gtm and ai automations. advisory for startups, businesses, and venture funds ($1M -> $3B). prev ai ugc @ doublespeed (a16z). growth, design, and product consultant (yc, a16z, speedrun, 10x).";
+  "engineering gtm and ai automations. advisory for startups, businesses, and venture funds ($1M -> $3B). growth, design, product, and ugc consultant (yc, a16z, speedrun, 10x).";
 
 export const metadata: Metadata = {
   title: "Muhammad Kamil",

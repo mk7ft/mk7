@@ -27,9 +27,9 @@ export const PROFILE = {
 
 // Hero bio — the 5-second pitch.
 export const BIO: Run[] = [
-  { text: "gtm and ai automations. advisory for startups, businesses, and venture funds " },
+  { text: "engineering gtm and ai automations. advisory for startups, businesses, and venture funds " },
   { text: "($1M -> $3B)", hi: true },
-  { text: ". prev ai ugc @ doublespeed (a16z). growth, design, and product consultant (yc, a16z, speedrun, 10x)." },
+  { text: ". growth, design, product, and ugc consultant (yc, a16z, speedrun, 10x)." },
 ];
 
 export const LOGO = "/mk-logo.png";
