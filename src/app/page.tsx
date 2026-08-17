@@ -302,7 +302,7 @@ export default function Home() {
 
         <footer>
           <div className="meta">
-            <a href={`mailto:${PROFILE.email}`}>say hi ↗</a>
+            <a className="flogo" href="https://mk7ft.com" aria-label="MK7 — home"><img src={LOGO} alt="MK7" /></a>
             <span>{PROFILE.location}</span>
             <span>{PROFILE.copyright}</span>
           </div>
