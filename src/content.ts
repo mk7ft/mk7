@@ -159,7 +159,7 @@ export const SECTIONS: Section[] = [
       },
     ],
     role: {
-      actions: ["lead ops", "connect", "scout", "outsource world class talent"],
+      actions: ["lead ops", "connect", "outsource world class talent"],
       impact: "reduce overhead",
     },
   },
