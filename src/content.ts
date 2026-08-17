@@ -110,8 +110,9 @@ export const SECTIONS: Section[] = [
       },
     ],
     role: {
-      actions: ["connect", "scout", "outsource", "lead"],
-      impact: "talent for your team",
+      actions: ["lead ops", "connect", "scout", "outsource"],
+      impact: "world class talent",
+      aside: "and reduce overhead",
     },
   },
   {
@@ -160,7 +161,7 @@ export const SECTIONS: Section[] = [
     ],
     role: {
       lead: "consult on",
-      actions: ["culture (ugc)", "product", "growth", "ai"],
+      actions: ["ai automations", "gtm (growth + product)"],
       impact: "3x your revenue/reach",
     },
   },
@@ -199,7 +200,7 @@ export const SECTIONS: Section[] = [
     ],
     role: {
       lead: "join as",
-      actions: ["advisor/co-founder", "partner", "build"],
+      actions: ["advisor or/and co-founder", "build"],
       impact: "your startup from 0 -> 100",
     },
   },
