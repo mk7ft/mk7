@@ -38,14 +38,15 @@ export const metadata: Metadata = {
     siteName: "Muhammad Kamil",
     type: "website",
     locale: "en_US",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Muhammad Kamil" }],
+    // ?v= busts platform link-preview caches when the image changes
+    images: [{ url: "/og-image.jpg?v=2", width: 1200, height: 630, alt: "Muhammad Kamil" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
     creator: "@mk7ft",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.jpg?v=2"],
   },
   robots: {
     index: true,

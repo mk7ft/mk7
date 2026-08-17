@@ -38,7 +38,7 @@ export const PROFILE = {
 } as const;
 
 // Under the outro links — sets the tone for reaching out.
-export const OUTRO_ASIDE = "i read every message i get (even sales ones)";
+export const OUTRO_ASIDE = "i read every message (even spam)";
 
 // Third-party credibility strip (footer).
 export const FEATURED = ["Forbes", "TechCrunch", "Business Insider", "ESPN", "Fox News"];
