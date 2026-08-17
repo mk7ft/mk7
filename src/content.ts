@@ -38,7 +38,7 @@ export const PROFILE = {
 export const OUTRO_ASIDE = "i read every message i get, even sales ones";
 
 // Third-party credibility strip (footer).
-export const FEATURED = ["Forbes", "TechCrunch", "Business Insider", "ESPN", "Dexerto"];
+export const FEATURED = ["Forbes", "TechCrunch", "Business Insider", "ESPN", "Fox News"];
 
 // Hero bio — the 5-second pitch, one entry per line.
 export const BIO: Run[][] = [
