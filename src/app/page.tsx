@@ -135,11 +135,12 @@ export default function Home() {
           ))}
 
           <section className="outro">
-            <p>
-              if you&apos;d like to work with me,{" "}
-              <a href={`mailto:${PROFILE.email}`}>shoot me a message</a> or book via{" "}
-              <button className="cal-link" {...calAttrs}>{CAL.display}</button>.
-            </p>
+            <p>if you&apos;d like to work with me:</p>
+            <div className="outro-links">
+              <a href={PROFILE.linkedin.url} target="_blank" rel="noopener noreferrer">message ↗</a>
+              <a href={`mailto:${PROFILE.email}`}>email ↗</a>
+              <button className="cal-link" {...calAttrs}>meeting ↗</button>
+            </div>
           </section>
         </main>
 

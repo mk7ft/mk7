@@ -21,7 +21,7 @@ export const PROFILE = {
   name: "muhammad kamil",
   location: "tampa, fl",
   email: "muhammadkamilali@gmail.com",
-  linkedin: { url: "https://linkedin.com/in/mk7ft", note: "(11k+ followers)" },
+  linkedin: { url: "https://linkedin.com/in/mk7ft", note: "(13k+ followers)" },
   copyright: "© 2026 mk7",
 } as const;
 
@@ -38,7 +38,6 @@ export const LOGO = "/mk-logo.png";
 export const CAL = {
   namespace: "20",
   link: "mk7ft/20",
-  display: "cal.com/mk7ft/20",
   config:
     '{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"}',
 } as const;
@@ -53,12 +52,12 @@ export const SECTIONS: Section[] = [
       [
         { text: "i'm connected to over " },
         { text: "1000+ startup founders", hi: true },
-        { text: ", entrepreneurs, vc and wealth funds, design and creative agencies, it and cybersecurity firms, technical teams, content creators, d1 athletes, and high-net-worth families, and have direct access to " },
+        { text: ", entrepreneurs, vc and wealth funds, design and creative agencies, IT and cybersecurity firms, technical teams, content creators, D1 athletes, and high-net-worth families, and have direct access to " },
         { text: "25,000+ students", hi: true },
-        { text: " from usf, ut, uf, ucf, um, fsu, and other major fl universities." },
+        { text: " from USF, UT, UF, UCF, UM, FSU, and other major FL universities." },
       ],
       [
-        { text: "direct impact (overall): " },
+        { text: "my direct impact (overall): " },
         { text: "$50M+ in revenue", hi: true },
         { text: ", " },
         { text: "$500K+ in profits", hi: true },
@@ -69,7 +68,7 @@ export const SECTIONS: Section[] = [
         { text: "." },
       ],
     ],
-    will: "i will connect, lead, refer, promote, outsource, and hire talent for your team.",
+    will: "i will connect, scout, promote, outsource, and hire talent for your team (and lead if necessary).",
   },
   {
     id: "advisory",
@@ -78,19 +77,19 @@ export const SECTIONS: Section[] = [
     title: "consulting + advisory",
     body: [
       [
-        { text: "i've built, consulted, studied, sold, brokered, and scouted startups and businesses in ai, tech, healthcare, education, intelligence, design, data, finance, ugc, content, sales, marketing, sports." },
+        { text: "i've built, consulted, sold, brokered, and scouted startups and businesses in ai, tech, healthcare, education, intelligence, design, data, finance, ugc, content, sales, marketing, sports, and other spaces." },
       ],
       [
-        { text: "company profiles ranging between " },
+        { text: "many of the company profiles i've worked with range between " },
         { text: "$1 million to $5 billion in revenue", hi: true },
         { text: ", " },
-        { text: "250M+ impressions", hi: true },
+        { text: "100-250M+ impressions", hi: true },
         { text: ", " },
-        { text: "150K+ monthly active users", hi: true },
-        { text: ", or were ideas that failed (including mine) even after they did \"everything right\"." },
+        { text: "10-150K+ monthly active users", hi: true },
+        { text: ", or were failed startups (including mine) even after the founders did everything right." },
       ],
     ],
-    will: "i will consult on culture, product, growth, ai, and ways to 3x your revenue.",
+    will: "i will consult on culture (ugc), product, growth, ai, and ways to 3x your revenue/reach.",
   },
   {
     id: "partnership",
@@ -100,11 +99,11 @@ export const SECTIONS: Section[] = [
     note: "(rarely)",
     body: [
       [
-        { text: "if you have an idea and need help in any of these areas (gtm, ops, hiring, finance, ai, branding, or product). involved with some of the household names in the startup world " },
+        { text: "if you have an idea and need help (gtm, ops, hiring, finance, ai, branding, or product). i've been involved with startups backed by legendary funds " },
         { text: "(yc, a16z, speedrun, 10x, etc)", hi: true },
-        { text: " + angels and wealth funds." },
+        { text: " + angels and international wealth funds. i have a good understanding of what, how, and where to build. i'll be the unfair advantage when building your company." },
       ],
     ],
-    will: "i will join as an advisor/co-founder, partner with you, and build a startup from 0 -> 100.",
+    will: "i will join as an advisor/co-founder, partner with you, and build your startup from 0 -> 100.",
   },
 ];
