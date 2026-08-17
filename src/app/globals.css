@@ -28,7 +28,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   --line:rgba(237,234,225,0.16);
   --yellow:#f0e0a2;
   --pink:#eac6c2;
-  --blue:#b9d6e6;
+  --blue:#9cc7dd;
 }
 
 /* the slate — vignette + eraser smudges + swipe streaks */
@@ -135,7 +135,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .chalk .stat:nth-child(2n+1){transform:rotate(-0.5deg)}
 .chalk .stat .n{font-family:var(--font-chalk-head);font-weight:700;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1;overflow-wrap:anywhere}
 .chalk .stats-grid.yellow .n{color:var(--yellow);text-shadow:0 0 8px rgba(240,224,162,0.22)}
-.chalk .stats-grid.blue .n{color:var(--blue);text-shadow:0 0 8px rgba(185,214,230,0.22)}
+.chalk .stats-grid.blue .n{color:var(--blue);text-shadow:0 0 8px rgba(156,199,221,0.22)}
 .chalk .stats-grid.pink .n{color:var(--pink);text-shadow:0 0 8px rgba(234,198,194,0.22)}
 .chalk .stat .l{font-size:.98rem;color:var(--soft);margin-top:.3rem;line-height:1.4}
 /* "my role:" — a chalk equation: pills + pills = underlined impact.
