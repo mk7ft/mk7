@@ -4,8 +4,9 @@
 // copy, sections, or numbers; the page re-renders from it.
 // ─────────────────────────────────────────────────────────────
 
-/** A run of text; `hi: true` renders it as yellow chalk. */
-export type Run = { text: string; hi?: boolean };
+/** A run of text; `hi` renders yellow chalk, `color` picks another chalk,
+    `nowrap` keeps the phrase on one line. */
+export type Run = { text: string; hi?: boolean; color?: "blue" | "pink"; nowrap?: boolean };
 
 /** One drawn element on a section board. */
 export type Block =
@@ -37,7 +38,9 @@ export const PROFILE = {
 export const BIO: Run[] = [
   { text: "engineering gtm and ai automations. advisory for startups, businesses, and venture funds " },
   { text: "($1M -> $3B)", hi: true },
-  { text: ". growth, design, product, and ugc consultant (yc, a16z, speedrun, 10x)." },
+  { text: ". growth, design, product, and ugc consultant " },
+  { text: "(yc, a16z, speedrun, 10x)", color: "blue" },
+  { text: "." },
 ];
 
 export const LOGO = "/mk-logo.png";
@@ -133,7 +136,8 @@ export const SECTIONS: Section[] = [
       {
         kind: "text",
         runs: [
-          { text: "or were failed startups (including mine) even after the founders did everything right." },
+          { text: "or were failed startups (including mine) even after the founders did " },
+          { text: "everything right.", nowrap: true },
         ],
       },
     ],

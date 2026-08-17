@@ -54,6 +54,15 @@ function NumCircle({ n }: { n: string }) {
   );
 }
 
+function WillArrow() {
+  return (
+    <svg className="scr will-arrow" viewBox="0 0 64 44" aria-hidden="true">
+      <path d="M4 34 C 18 14, 38 12, 55 21" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" filter="url(#chalk)" />
+      <path d="M46 12 C 50 16, 53 19, 57 22 C 52 24, 48 27, 44 30" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#chalk)" />
+    </svg>
+  );
+}
+
 function ScrollArrow() {
   return (
     <svg className="scr arrow" viewBox="0 0 40 64" aria-hidden="true">
@@ -71,13 +80,20 @@ function Sparkle({ className = "" }: { className?: string }) {
   );
 }
 
-/* ── text runs (yellow-chalk highlights) ── */
+/* ── text runs (colored-chalk highlights) ── */
 function Runs({ parts }: { parts: Run[] }) {
   return (
     <>
-      {parts.map((p, i) =>
-        p.hi ? <em className="hi" key={i}>{p.text}</em> : <span key={i}>{p.text}</span>,
-      )}
+      {parts.map((p, i) => {
+        const cls = [p.hi ? "hi" : "", p.color ? `hi-${p.color}` : "", p.nowrap ? "nowrap" : ""]
+          .filter(Boolean)
+          .join(" ");
+        return cls ? (
+          <em className={cls} key={i}>{p.text}</em>
+        ) : (
+          <span key={i}>{p.text}</span>
+        );
+      })}
     </>
   );
 }
@@ -168,8 +184,8 @@ export default function Home() {
                 <BlockView b={b} key={i} />
               ))}
               <p className="will">
+                <WillArrow />
                 {s.will}
-                <Underline className="will-under" />
               </p>
             </section>
           ))}
