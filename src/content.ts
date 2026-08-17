@@ -72,7 +72,7 @@ export const SECTIONS: Section[] = [
   {
     id: "advisory",
     num: "1",
-    title: "consulting + advisory",
+    title: "consulting + gtm",
     body: [
       { kind: "lead", text: "i've built, consulted, studied, sold, brokered, and scouted startups and businesses in" },
       {
@@ -122,7 +122,7 @@ export const SECTIONS: Section[] = [
   {
     id: "network",
     num: "2",
-    title: "access + network",
+    title: "operations + connect",
     body: [
       { kind: "lead", text: "i'm connected to over" },
       { kind: "big", n: "1,000+" },
@@ -166,7 +166,7 @@ export const SECTIONS: Section[] = [
   {
     id: "partnership",
     num: "3",
-    title: "partnership + co-founding",
+    title: "advisory + co-founding",
     note: "(rarely)",
     body: [
       { kind: "lead", text: "if you have an idea and need help with" },
