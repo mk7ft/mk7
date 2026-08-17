@@ -19,18 +19,20 @@ const patrick = Patrick_Hand({
   display: "swap",
 });
 
+// Short enough to stay on one line in link previews.
+const title = "Muhammad Kamil - gtm, ai automations, advisory";
 const description =
   "engineering gtm and ai automations. advisory for startups, businesses, and venture funds ($1M -> $3B). growth, design, product, and ugc consultant (yc, a16z, speedrun, 10x).";
 
 export const metadata: Metadata = {
-  title: "Muhammad Kamil",
+  title,
   description,
   authors: [{ name: "Muhammad Kamil", url: "https://mk7ft.com" }],
   creator: "Muhammad Kamil",
   metadataBase: new URL("https://mk7ft.com"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Muhammad Kamil",
+    title,
     description,
     url: "https://mk7ft.com",
     siteName: "Muhammad Kamil",
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Kamil",
+    title,
     description,
     creator: "@mk7ft",
     images: ["/og-image.jpg"],

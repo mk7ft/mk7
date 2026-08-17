@@ -16,10 +16,10 @@ export type Block =
   | { kind: "stats"; label?: string; color?: "yellow" | "blue" | "pink"; items: { n: string; label: string }[] }
   | { kind: "text"; runs: Run[] };                       // plain paragraph
 
+// Section icons are hand-drawn chalk SVGs in page.tsx, keyed by `id`.
 export type Section = {
   id: string;
   num: string;
-  emoji: string;
   title: string;
   note?: string;
   body: Block[];
@@ -33,6 +33,12 @@ export const PROFILE = {
   linkedin: { url: "https://linkedin.com/in/mk7ft", note: "(13k+ followers)" },
   copyright: "© 2026 mk7",
 } as const;
+
+// Under the outro links — sets the tone for reaching out.
+export const OUTRO_ASIDE = "i read every message i get, even sales ones";
+
+// Third-party credibility strip (footer).
+export const FEATURED = ["Forbes", "TechCrunch", "Business Insider", "ESPN", "Dexerto"];
 
 // Hero bio — the 5-second pitch, one entry per line.
 export const BIO: Run[][] = [
@@ -62,11 +68,10 @@ export const SECTIONS: Section[] = [
   {
     id: "network",
     num: "1",
-    emoji: "🤝",
     title: "access + network",
     body: [
       { kind: "lead", text: "i'm connected to over" },
-      { kind: "big", n: "1000+", label: "startup founders" },
+      { kind: "big", n: "1,000+", label: "startup founders" },
       {
         kind: "tags",
         items: [
@@ -104,7 +109,6 @@ export const SECTIONS: Section[] = [
   {
     id: "advisory",
     num: "2",
-    emoji: "🧠",
     title: "consulting + advisory",
     body: [
       { kind: "lead", text: "i've built, consulted, studied, sold, brokered, and scouted startups and businesses in" },
@@ -151,7 +155,6 @@ export const SECTIONS: Section[] = [
   {
     id: "partnership",
     num: "3",
-    emoji: "🚀",
     title: "partnership + co-founding",
     note: "(rarely)",
     body: [
