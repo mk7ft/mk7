@@ -109,12 +109,11 @@ function Sparkle({ className = "" }: { className?: string }) {
 function NetworkIcon() {
   return (
     <svg className="scr sec-icon" viewBox="0 0 64 64" aria-hidden="true">
-      {/* connectors first, nodes drawn over them */}
-      <path pathLength={1} d="M20 19 C 28 17 34 16 40 15 M17 26 C 21 34 25 40 28 43 M43 20 C 40 28 36 37 33 43 M50 19 C 52 25 53 31 54 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" opacity="0.65" filter="url(#chalk-soft)" />
-      <path pathLength={1} d="M14 14 C 18 14 20 17 20 20 C 20 24 17 26 14 26 C 10 26 8 23 8 20 C 8 16 10 14 14 14 Z" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" filter="url(#chalk)" />
-      <path pathLength={1} d="M46 8 C 50 8 52 11 52 14 C 52 18 49 20 46 20 C 42 20 40 17 40 14 C 40 10 42 8 46 8 Z" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" filter="url(#chalk)" />
-      <path pathLength={1} d="M31 42 C 36 42 39 45 39 49 C 39 53 35 56 31 56 C 26 56 23 53 23 49 C 23 45 26 42 31 42 Z" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" filter="url(#chalk)" />
-      <path pathLength={1} d="M55 38 C 58 38 60 40 60 43 C 60 46 57 48 55 48 C 52 48 50 46 50 43 C 50 40 52 38 55 38 Z" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" opacity="0.8" filter="url(#chalk)" />
+      {/* three-node triangle — edges first, nodes drawn over them */}
+      <path pathLength={1} d="M24 14 C 30 13, 36 13, 40 14 M20 22 C 23 29, 27 36, 29 42 M44 22 C 41 29, 37 36, 35 42" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" opacity="0.7" filter="url(#chalk-soft)" />
+      <path pathLength={1} d="M16 8 C 21 8, 23.5 11, 23.5 15 C 23.5 19.5, 20 22.5, 16 22.5 C 11.5 22.5, 8.5 19, 8.5 15 C 8.5 11, 11.5 8, 16 8 Z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" filter="url(#chalk)" />
+      <path pathLength={1} d="M48 8 C 53 8, 55.5 11, 55.5 15 C 55.5 19.5, 52 22.5, 48 22.5 C 43.5 22.5, 40.5 19, 40.5 15 C 40.5 11, 43.5 8, 48 8 Z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" filter="url(#chalk)" />
+      <path pathLength={1} d="M32 42 C 37 42, 39.5 45, 39.5 49 C 39.5 53.5, 36 56.5, 32 56.5 C 27.5 56.5, 24.5 53, 24.5 49 C 24.5 45, 27.5 42, 32 42 Z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" filter="url(#chalk)" />
     </svg>
   );
 }
@@ -173,7 +172,7 @@ function BlockView({ b }: { b: Block }) {
     case "big":
       return (
         <div className="bignum">
-          {b.n} <span>{b.label}</span>
+          {b.n}{b.label && <> <span>{b.label}</span></>}
         </div>
       );
     case "tags":
@@ -265,19 +264,23 @@ export default function Home() {
                     <BlockView b={b} key={i} />
                   ))}
                   <div className="role">
-                    <span className="role-label">my role:</span>
-                    {s.role.lead && <span className="role-lead">{s.role.lead}</span>}
-                    {s.role.actions.map((a, ai) => (
-                      <Fragment key={a}>
-                        {ai > 0 && <span className="plus" aria-hidden="true">+</span>}
-                        <span className={`rpill${ai % 2 ? " alt" : ""}`}>{a}</span>
-                      </Fragment>
-                    ))}
-                    <RoleEquals />
-                    <em className="role-impact">
-                      {s.role.impact}
-                      <Underline className="under-i" />
-                    </em>
+                    <div className="eq">
+                      <span className="role-label">my role:</span>
+                      {s.role.lead && <span className="role-lead">{s.role.lead}</span>}
+                      {s.role.actions.map((a, ai) => (
+                        <Fragment key={a}>
+                          {ai > 0 && <span className="plus" aria-hidden="true">+</span>}
+                          <span className={`rpill${ai % 2 ? " alt" : ""}`}>{a}</span>
+                        </Fragment>
+                      ))}
+                      <span className="res">
+                        <RoleEquals />
+                        <em className="role-impact">
+                          {s.role.impact}
+                          <Underline className="under-i" />
+                        </em>
+                      </span>
+                    </div>
                     {s.role.aside && <span className="aside">{s.role.aside}</span>}
                   </div>
                 </section>

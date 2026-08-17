@@ -11,7 +11,7 @@ export type Run = { text: string; hi?: boolean; color?: "blue" | "pink"; nowrap?
 /** One drawn element on a section board. */
 export type Block =
   | { kind: "lead"; text: string }                       // small intro line
-  | { kind: "big"; n: string; label: string }            // huge chalk number
+  | { kind: "big"; n: string; label?: string }           // huge chalk number (+ optional boxed label)
   | { kind: "tags"; items: string[]; accent?: boolean; suffix?: string; aside?: string } // chalk pills (+ optional scribbled aside)
   | { kind: "stats"; label?: string; color?: "yellow" | "blue" | "pink"; items: { n: string; label: string }[] }
   | { kind: "text"; runs: Run[] };                       // plain paragraph
@@ -75,10 +75,11 @@ export const SECTIONS: Section[] = [
     title: "access + network",
     body: [
       { kind: "lead", text: "i'm connected to over" },
-      { kind: "big", n: "1,000+", label: "startup founders" },
+      { kind: "big", n: "1,000+" },
       {
         kind: "tags",
         items: [
+          "startup founders",
           "entrepreneurs",
           "vc and wealth funds",
           "design and creative agencies",
@@ -109,9 +110,8 @@ export const SECTIONS: Section[] = [
       },
     ],
     role: {
-      actions: ["connect", "scout", "promote", "outsource", "hire"],
+      actions: ["connect", "scout", "outsource", "lead"],
       impact: "talent for your team",
-      aside: "(and lead if necessary)",
     },
   },
   {
