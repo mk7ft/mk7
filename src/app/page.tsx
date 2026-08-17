@@ -70,9 +70,9 @@ function NumCircle({ n }: { n: string }) {
   );
 }
 
-function WillArrow() {
+function RoleArrow() {
   return (
-    <svg className="scr will-arrow" viewBox="0 0 64 44" aria-hidden="true">
+    <svg className="scr role-arrow" viewBox="0 0 64 44" aria-hidden="true">
       <path pathLength={1} d="M4 34 C 18 14, 38 12, 55 21" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" filter="url(#chalk)" />
       <path pathLength={1} d="M46 12 C 50 16, 53 19, 57 22 C 52 24, 48 27, 44 30" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#chalk)" />
     </svg>
@@ -106,27 +106,26 @@ function Sparkle({ className = "" }: { className?: string }) {
 }
 
 /* ── chalk section icons (replace emojis; keyed by section id) ── */
-function HandshakeIcon() {
+function NetworkIcon() {
   return (
     <svg className="scr sec-icon" viewBox="0 0 64 64" aria-hidden="true">
-      <path pathLength={1} d="M4 26 L16 22 C 22 20 26 22 30 26 L36 31" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" filter="url(#chalk)" />
-      <path pathLength={1} d="M60 24 L48 20 C 42 18 38 21 33 25" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" filter="url(#chalk)" />
-      <path pathLength={1} d="M24 30 l5 5 l5 -3 l5 5 l5 -3" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" filter="url(#chalk)" />
-      <path pathLength={1} d="M4 20 L4 34 M60 18 L60 32" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" opacity="0.6" filter="url(#chalk-soft)" />
+      {/* connectors first, nodes drawn over them */}
+      <path pathLength={1} d="M20 19 C 28 17 34 16 40 15 M17 26 C 21 34 25 40 28 43 M43 20 C 40 28 36 37 33 43 M50 19 C 52 25 53 31 54 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" opacity="0.65" filter="url(#chalk-soft)" />
+      <path pathLength={1} d="M14 14 C 18 14 20 17 20 20 C 20 24 17 26 14 26 C 10 26 8 23 8 20 C 8 16 10 14 14 14 Z" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" filter="url(#chalk)" />
+      <path pathLength={1} d="M46 8 C 50 8 52 11 52 14 C 52 18 49 20 46 20 C 42 20 40 17 40 14 C 40 10 42 8 46 8 Z" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" filter="url(#chalk)" />
+      <path pathLength={1} d="M31 42 C 36 42 39 45 39 49 C 39 53 35 56 31 56 C 26 56 23 53 23 49 C 23 45 26 42 31 42 Z" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" filter="url(#chalk)" />
+      <path pathLength={1} d="M55 38 C 58 38 60 40 60 43 C 60 46 57 48 55 48 C 52 48 50 46 50 43 C 50 40 52 38 55 38 Z" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" opacity="0.8" filter="url(#chalk)" />
     </svg>
   );
 }
 
-function BrainIcon() {
+function LightbulbIcon() {
   return (
     <svg className="scr sec-icon" viewBox="0 0 64 64" aria-hidden="true">
-      <path
-        pathLength={1}
-        d="M22 14 C 14 16 12 26 18 30 C 10 34 14 46 24 46 C 26 52 38 54 42 48 C 52 50 58 40 52 34 C 60 28 54 16 44 16 C 40 8 26 8 22 14 Z"
-        fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" filter="url(#chalk)"
-      />
-      <path pathLength={1} d="M28 22 C 32 26 28 30 32 34" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" opacity="0.8" filter="url(#chalk-soft)" />
-      <path pathLength={1} d="M40 22 C 36 26 40 30 36 36" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" opacity="0.8" filter="url(#chalk-soft)" />
+      <path pathLength={1} d="M32 8 C 41 8 47 15 47 23 C 47 29 43 33 41 38 L23 38 C 21 33 17 29 17 23 C 17 15 23 8 32 8 Z" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" filter="url(#chalk)" />
+      <path pathLength={1} d="M27 38 C 27 32 29 29 32 31 C 35 29 37 32 37 38" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" opacity="0.8" filter="url(#chalk-soft)" />
+      <path pathLength={1} d="M26 44 L38 44 M27 49 L37 49 M29 54 L35 54" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" filter="url(#chalk)" />
+      <path pathLength={1} d="M8 22 L14 22 M50 22 L56 22 M13 9 L18 13 M51 9 L46 13" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" opacity="0.6" filter="url(#chalk-soft)" />
     </svg>
   );
 }
@@ -143,8 +142,8 @@ function RocketIcon() {
 }
 
 const SECTION_ICONS: Record<string, () => React.ReactNode> = {
-  network: HandshakeIcon,
-  advisory: BrainIcon,
+  network: NetworkIcon,
+  advisory: LightbulbIcon,
   partnership: RocketIcon,
 };
 
@@ -235,6 +234,12 @@ export default function Home() {
             <div className="cta">
               <button className="btn-chalk" {...calAttrs}>book a call ↗</button>
             </div>
+            <div className="featured">
+              <span className="fl">work featured in</span>
+              {FEATURED.map((f) => (
+                <span className="fname" key={f}>{f}</span>
+              ))}
+            </div>
           </div>
           <a className="cue" href="#network">
             <span>how i add value</span>
@@ -259,10 +264,21 @@ export default function Home() {
                   {s.body.map((b, i) => (
                     <BlockView b={b} key={i} />
                   ))}
-                  <p className="will">
-                    <WillArrow />
-                    {s.will}
-                  </p>
+                  <div className="role">
+                    <span className="role-label">my role:</span>
+                    {s.role.lead && <span className="role-lead">{s.role.lead}</span>}
+                    <span className="rpills">
+                      {s.role.actions.map((a) => (
+                        <span className="rpill" key={a}>{a}</span>
+                      ))}
+                    </span>
+                    <RoleArrow />
+                    <em className="role-impact">
+                      {s.role.impact}
+                      <Underline className="under-i" />
+                    </em>
+                    {s.role.aside && <span className="aside">{s.role.aside}</span>}
+                  </div>
                 </section>
               </Fragment>
             );
@@ -281,12 +297,6 @@ export default function Home() {
         </main>
 
         <footer>
-          <div className="featured">
-            <span className="fl">work featured in</span>
-            {FEATURED.map((f) => (
-              <span className="fname" key={f}>{f}</span>
-            ))}
-          </div>
           <div className="meta">
             <a href={`mailto:${PROFILE.email}`}>say hi ↗</a>
             <span>{PROFILE.location}</span>

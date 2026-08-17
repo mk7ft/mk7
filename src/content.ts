@@ -16,6 +16,9 @@ export type Block =
   | { kind: "stats"; label?: string; color?: "yellow" | "blue" | "pink"; items: { n: string; label: string }[] }
   | { kind: "text"; runs: Run[] };                       // plain paragraph
 
+/** The "my role:" line — action pills, a drawn arrow, then the impact. */
+export type Role = { lead?: string; actions: string[]; impact: string; aside?: string };
+
 // Section icons are hand-drawn chalk SVGs in page.tsx, keyed by `id`.
 export type Section = {
   id: string;
@@ -23,7 +26,7 @@ export type Section = {
   title: string;
   note?: string;
   body: Block[];
-  will: string;
+  role: Role;
 };
 
 export const PROFILE = {
@@ -35,7 +38,7 @@ export const PROFILE = {
 } as const;
 
 // Under the outro links — sets the tone for reaching out.
-export const OUTRO_ASIDE = "i read every message i get, even sales ones";
+export const OUTRO_ASIDE = "i read every message i get (even sales ones)";
 
 // Third-party credibility strip (footer).
 export const FEATURED = ["Forbes", "TechCrunch", "Business Insider", "ESPN", "Fox News"];
@@ -104,7 +107,11 @@ export const SECTIONS: Section[] = [
         ],
       },
     ],
-    will: "i will connect, scout, promote, outsource, and hire talent for your team (and lead if necessary).",
+    role: {
+      actions: ["connect", "scout", "promote", "outsource", "hire"],
+      impact: "talent for your team",
+      aside: "(and lead if necessary)",
+    },
   },
   {
     id: "advisory",
@@ -150,7 +157,11 @@ export const SECTIONS: Section[] = [
         ],
       },
     ],
-    will: "i will consult on culture (ugc), product, growth, ai, and ways to 3x your revenue/reach.",
+    role: {
+      lead: "consult on",
+      actions: ["culture (ugc)", "product", "growth", "ai"],
+      impact: "3x your revenue/reach",
+    },
   },
   {
     id: "partnership",
@@ -179,6 +190,10 @@ export const SECTIONS: Section[] = [
         ],
       },
     ],
-    will: "i will join as an advisor/co-founder, partner with you, and build your startup from 0 -> 100.",
+    role: {
+      lead: "join as",
+      actions: ["advisor/co-founder", "partner", "build"],
+      impact: "your startup from 0 -> 100",
+    },
   },
 ];
