@@ -123,16 +123,17 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   padding:.16rem .85rem .24rem;margin-left:.55rem;vertical-align:.35em;transform:rotate(-1deg);
   text-shadow:none;background:rgba(237,234,225,0.04)}
 
-/* white university marks */
-.chalk .unirow{display:flex;align-items:center;flex-wrap:wrap;gap:.9rem 1.25rem;margin-top:1.1rem}
-.chalk .unirow img{height:2.05rem;width:auto;display:block;opacity:.85}
-.chalk .unirow .suffix{font-size:1rem;color:var(--faint)}
+/* white university marks — fixed 6-column grid = always exactly 2 rows */
+.chalk .unirow{display:grid;grid-template-columns:repeat(6,1fr);gap:.85rem .55rem;align-items:center;justify-items:center;margin-top:1.1rem}
+.chalk .unirow img{max-height:2rem;max-width:100%;width:auto;display:block;opacity:.85}
+.chalk .unirow .suffix{grid-column:1/-1;justify-self:start;font-size:1rem;color:var(--faint);margin-top:.1rem}
 
 /* side-by-side columns with a vertical chalk divider */
 .chalk .duo{display:grid;grid-template-columns:1fr auto 1.02fr;gap:0 clamp(1.1rem,2.6vw,2rem);align-items:center;margin-top:.3rem}
 .chalk .duo-col{min-width:0}
 .chalk .vdiv{width:.85rem;height:100%;min-height:11rem;align-self:stretch;color:rgba(237,234,225,0.3)}
-.chalk .duo .tags{max-width:none}
+.chalk .duo .tags{max-width:none;gap:.45rem .5rem}
+.chalk .duo .tag{font-size:.87rem;padding:.11rem .56rem .17rem}
 @media (max-width:767px){
   .chalk .duo{grid-template-columns:1fr;gap:.4rem}
   .chalk .vdiv{display:none}
@@ -300,7 +301,8 @@ html.anim section.reveal.inview .res .scr path{animation-delay:1.15s;animation-d
   .chalk .stats-grid{grid-template-columns:repeat(2,1fr);gap:1.1rem 1rem}
   .chalk .stat .n{font-size:1.8rem}
   .chalk .tag{font-size:.88rem;padding:.12rem .6rem .18rem}
-  .chalk .unirow img{height:1.7rem}
+  .chalk .unirow{grid-template-columns:repeat(4,1fr)}
+  .chalk .unirow img{max-height:1.6rem}
   .chalk .eq{gap:.45rem .5rem}
   .chalk .role-impact{font-size:1.35rem;white-space:normal}
   .chalk .plus{font-size:1.2rem}
