@@ -105,21 +105,6 @@ function Sparkle({ className = "" }: { className?: string }) {
   );
 }
 
-function Squiggle({ className = "" }: { className?: string }) {
-  return (
-    <svg className={`scr doodle ${className}`} viewBox="0 0 62 20" preserveAspectRatio="none" aria-hidden="true">
-      <path pathLength={1} d="M4 12 C 9 4, 14 18, 20 10 S 31 4, 36 11 S 48 18, 58 8" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" filter="url(#chalk)" />
-    </svg>
-  );
-}
-
-function Spiral({ className = "" }: { className?: string }) {
-  return (
-    <svg className={`scr doodle ${className}`} viewBox="0 0 64 64" aria-hidden="true">
-      <path pathLength={1} d="M33 30 C 36 28, 40 30, 39 34 C 38 39, 31 41, 27 37 C 21 31, 25 21, 33 19 C 44 16, 52 25, 50 35 C 48 46, 36 52, 26 48" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" filter="url(#chalk)" />
-    </svg>
-  );
-}
 
 /* chalk loop drawn around the hero CTA after load */
 function CtaCircle() {
@@ -130,27 +115,6 @@ function CtaCircle() {
   );
 }
 
-/* faint margin sketches per section (positioned in CSS, drawn on scroll) */
-const SECTION_DOODLES: Record<string, React.ReactNode> = {
-  advisory: (
-    <>
-      <Spiral className="sd da1" />
-      <Sparkle className="sd da2" />
-    </>
-  ),
-  network: (
-    <>
-      <Squiggle className="sd dn1" />
-      <Sparkle className="sd dn2" />
-    </>
-  ),
-  partnership: (
-    <>
-      <Sparkle className="sd dp1" />
-      <Squiggle className="sd dp2" />
-    </>
-  ),
-};
 
 /* ── chalk section icons (replace emojis; keyed by section id) ── */
 function NetworkIcon() {
@@ -331,7 +295,6 @@ export default function Home() {
                     </div>
                     {s.role.aside && <span className="aside">{s.role.aside}</span>}
                   </div>
-                  {SECTION_DOODLES[s.id]}
                 </section>
               </Fragment>
             );

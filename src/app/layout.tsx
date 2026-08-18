@@ -20,7 +20,7 @@ const patrick = Patrick_Hand({
 });
 
 // Short enough to stay on one line in link previews.
-const title = "Muhammad Kamil - ai automations + gtm.";
+const title = "Muhammad Kamil - ai + gtm";
 const description =
   "engineering ai automations + gtm. advisory for startups, businesses, and venture funds ($1M -> $3B). growth, design, product, and ugc consultant (yc, a16z, speedrun, 10x).";
 

@@ -90,14 +90,6 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .chalk .d1{top:16%;left:6%;color:var(--pink);transform:rotate(12deg)}
 .chalk .d2{bottom:22%;right:7%;color:var(--blue);width:1.5rem;height:1.5rem;transform:rotate(-18deg);animation-delay:3.4s}
 
-/* per-section margin sketches */
-.chalk .sd{opacity:0.26}
-.chalk .da1{top:.6rem;right:1%;width:3rem;height:3rem;color:var(--pink);transform:rotate(12deg)}
-.chalk .da2{bottom:22%;right:5%;width:1.4rem;height:1.4rem;color:var(--blue);transform:rotate(-15deg);animation-delay:3.6s}
-.chalk .dn1{top:1.2rem;right:2%;width:3.4rem;height:1.3rem;color:var(--yellow);transform:rotate(-7deg)}
-.chalk .dn2{bottom:28%;right:4%;width:1.3rem;height:1.3rem;color:var(--pink);transform:rotate(20deg);animation-delay:2.8s}
-.chalk .dp1{top:1rem;right:3%;width:1.7rem;height:1.7rem;color:var(--blue);transform:rotate(10deg)}
-.chalk .dp2{bottom:22%;right:7%;width:3rem;height:1.1rem;color:var(--pink);transform:rotate(6deg);animation-delay:4.2s}
 
 /* chalk loop around the hero CTA — draws in after the rest */
 .chalk .cta{position:relative}
@@ -266,9 +258,6 @@ html.anim section.reveal.inview .eq>:nth-child(8){transition-delay:1.05s}
 /* the "=" strokes and impact underline draw last — the payoff */
 html.anim section.reveal.inview .res .scr path{animation-delay:1.15s;animation-duration:.8s}
 
-/* margin sketches fade in late, draw even later */
-html.anim section.reveal>.sd{transition-delay:1.1s}
-html.anim section.reveal.inview .sd path{animation-delay:1.2s}
 
 /* entrance + a11y */
 @keyframes chalk-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
@@ -290,7 +279,7 @@ html.anim section.reveal.inview .sd path{animation-delay:1.2s}
   .chalk .sec-head{gap:.85rem}
   .chalk .numwrap{width:2.8rem;height:2.8rem}
   .chalk .numwrap .num{font-size:1.55rem}
-  .chalk .doodle,.chalk .sd{display:none}
+  .chalk .doodle{display:none}
   .chalk .cta-circ{display:none}
   .chalk .bignum{font-size:2.5rem}
   .chalk .stats-grid{grid-template-columns:repeat(2,1fr);gap:1.1rem 1rem}

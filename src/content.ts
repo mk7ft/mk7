@@ -101,15 +101,8 @@ export const SECTIONS: Section[] = [
         color: "blue",
         items: [
           { n: "$1M -> $5B", label: "in revenue" },
-          { n: "100-250M+", label: "impressions" },
-          { n: "10-150K+", label: "monthly active users" },
-        ],
-      },
-      {
-        kind: "text",
-        runs: [
-          { text: "or were failed startups (including mine) even after the founders did " },
-          { text: "everything right.", nowrap: true },
+          { n: "100M - 250M", label: "impressions" },
+          { n: "10K - 150K", label: "monthly active users" },
         ],
       },
     ],
@@ -148,12 +141,12 @@ export const SECTIONS: Section[] = [
       },
       {
         kind: "stats",
-        label: "my direct impact (overall):",
-        color: "yellow",
+        label: "my direct impact (across all):",
+        color: "blue",
         items: [
           { n: "$50M+", label: "in revenue" },
-          { n: "$500K+", label: "in profits" },
-          { n: "8M+", label: "users (~25% paid)" },
+          { n: "$10M", label: "in profits" },
+          { n: "5M+", label: "users (~25% paid)" },
           { n: "10M+", label: "in social reach" },
         ],
       },
@@ -184,7 +177,7 @@ export const SECTIONS: Section[] = [
       {
         kind: "text",
         runs: [
-          { text: "i have a good understanding of what, how, and where to build." },
+          { text: "i have a solid understanding of what, how, and where to build." },
         ],
       },
       {
