@@ -221,6 +221,15 @@ function BlockView({ b }: { b: Block }) {
       );
     case "text":
       return <p className="body"><Runs parts={b.runs} /></p>;
+    case "logos":
+      return (
+        <div className="unirow">
+          {b.items.map((it) => (
+            <img src={it.src} alt={it.alt} key={it.src} />
+          ))}
+          {b.suffix && <span className="suffix">{b.suffix}</span>}
+        </div>
+      );
     case "duo":
       return (
         <div className="duo">

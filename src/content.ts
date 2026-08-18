@@ -15,6 +15,7 @@ export type Block =
   | { kind: "tags"; items: string[]; accent?: boolean; suffix?: string; aside?: string } // chalk pills (+ optional scribbled aside)
   | { kind: "stats"; label?: string; color?: "yellow" | "blue" | "pink"; items: { n: string; label: string }[] }
   | { kind: "text"; runs: Run[] }                        // plain paragraph
+  | { kind: "logos"; items: { src: string; alt: string }[]; suffix?: string } // white logo marks row
   | { kind: "duo"; left: Block[]; right: Block[] };      // side-by-side columns with a chalk divider
 
 /** The "my role:" line — action pills, a drawn arrow, then the impact. */
@@ -142,8 +143,15 @@ export const SECTIONS: Section[] = [
           { kind: "lead", text: "and have direct access to" },
           { kind: "big", n: "25,000+", label: "students" },
           {
-            kind: "tags",
-            items: ["USF", "UT", "UF", "UCF", "UM", "FSU"],
+            kind: "logos",
+            items: [
+              { src: "/uni/usf.png", alt: "USF" },
+              { src: "/uni/ut.png", alt: "University of Tampa" },
+              { src: "/uni/uf.png", alt: "UF" },
+              { src: "/uni/ucf.png", alt: "UCF" },
+              { src: "/uni/um.png", alt: "University of Miami" },
+              { src: "/uni/fsu.png", alt: "FSU" },
+            ],
             suffix: "and other major FL universities",
           },
         ],
