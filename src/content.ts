@@ -14,7 +14,8 @@ export type Block =
   | { kind: "big"; n: string; label?: string }           // huge chalk number (+ optional boxed label)
   | { kind: "tags"; items: string[]; accent?: boolean; suffix?: string; aside?: string } // chalk pills (+ optional scribbled aside)
   | { kind: "stats"; label?: string; color?: "yellow" | "blue" | "pink"; items: { n: string; label: string }[] }
-  | { kind: "text"; runs: Run[] };                       // plain paragraph
+  | { kind: "text"; runs: Run[] }                        // plain paragraph
+  | { kind: "duo"; left: Block[]; right: Block[] };      // side-by-side columns with a chalk divider
 
 /** The "my role:" line — action pills, a drawn arrow, then the impact. */
 export type Role = { lead?: string; actions: string[]; impact: string; aside?: string };
@@ -117,27 +118,34 @@ export const SECTIONS: Section[] = [
     num: "2",
     title: "operations + connect",
     body: [
-      { kind: "lead", text: "i'm connected to over" },
-      { kind: "big", n: "1,000+" },
       {
-        kind: "tags",
-        items: [
-          "startup founders",
-          "entrepreneurs",
-          "vc and wealth funds",
-          "design and creative agencies",
-          "IT and cybersecurity firms",
-          "technical teams",
-          "content creators",
-          "D1 athletes",
-          "high-net-worth families",
+        kind: "duo",
+        left: [
+          { kind: "lead", text: "i'm connected to over" },
+          { kind: "big", n: "1,000+" },
+          {
+            kind: "tags",
+            items: [
+              "startup founders",
+              "entrepreneurs",
+              "vc and wealth funds",
+              "design and creative agencies",
+              "IT and cybersecurity firms",
+              "technical teams",
+              "content creators",
+              "D1 athletes",
+              "high-net-worth families",
+            ],
+          },
         ],
-      },
-      { kind: "lead", text: "and have direct access to" },
-      { kind: "big", n: "25,000+", label: "students" },
-      {
-        kind: "text",
-        runs: [{ text: "USF · UT · UF · UCF · UM · FSU and other major FL universities" }],
+        right: [
+          { kind: "lead", text: "and have direct access to" },
+          { kind: "big", n: "25,000+", label: "students" },
+          {
+            kind: "text",
+            runs: [{ text: "USF · UT · UF · UCF · UM · FSU and other major FL universities" }],
+          },
+        ],
       },
       {
         kind: "stats",
@@ -167,12 +175,13 @@ export const SECTIONS: Section[] = [
         kind: "tags",
         items: ["gtm", "ops", "hiring", "finance", "ai", "branding", "product"],
       },
-      { kind: "lead", text: "i've been involved with startups backed by legendary funds" },
       {
-        kind: "tags",
-        accent: true,
-        items: ["yc", "a16z", "speedrun", "10x", "etc"],
-        suffix: "+ angels and international wealth funds",
+        kind: "text",
+        runs: [
+          { text: "i've been involved with startups backed by legendary funds " },
+          { text: "(yc, a16z, speedrun, 10x, etc)", color: "blue" },
+          { text: " + angels and international wealth funds." },
+        ],
       },
       {
         kind: "text",

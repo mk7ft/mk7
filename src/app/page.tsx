@@ -88,6 +88,15 @@ function Divider() {
   );
 }
 
+function VDivider() {
+  return (
+    <svg className="scr vdiv" viewBox="0 0 16 300" preserveAspectRatio="none" aria-hidden="true">
+      <path pathLength={1} d="M9 6 C 5 60, 12 140, 8 200 S 7 270, 9 294" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" filter="url(#chalk)" />
+      <path pathLength={1} d="M12 20 C 9 90, 13 170, 10 250" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" opacity="0.45" filter="url(#chalk-soft)" />
+    </svg>
+  );
+}
+
 function ScrollArrow() {
   return (
     <svg className="scr arrow" viewBox="0 0 40 64" aria-hidden="true">
@@ -212,6 +221,18 @@ function BlockView({ b }: { b: Block }) {
       );
     case "text":
       return <p className="body"><Runs parts={b.runs} /></p>;
+    case "duo":
+      return (
+        <div className="duo">
+          <div className="duo-col">
+            {b.left.map((inner, i) => <BlockView b={inner} key={i} />)}
+          </div>
+          <VDivider />
+          <div className="duo-col">
+            {b.right.map((inner, i) => <BlockView b={inner} key={i} />)}
+          </div>
+        </div>
+      );
   }
 }
 
