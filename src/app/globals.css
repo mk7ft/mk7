@@ -209,6 +209,26 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .chalk .flogo img{height:1.1rem;width:auto;display:block;opacity:.55;transition:opacity .15s}
 .chalk .flogo:hover img{opacity:.9}
 
+/* ── chalk progress line (width driven by --sp from ScrollFx) ── */
+.chalk .progress{position:fixed;top:0;left:0;z-index:60;height:3px;width:calc(var(--sp,0)*100%);
+  background:linear-gradient(90deg,rgba(240,224,162,0.7),rgba(240,224,162,0.95));
+  border-radius:0 3px 3px 0;box-shadow:0 0 7px rgba(240,224,162,0.35);pointer-events:none}
+
+/* ── section dots (desktop, mid-page only) ── */
+.chalk .dots{position:fixed;right:1.25rem;top:50%;translate:0 -50%;z-index:50;display:flex;flex-direction:column;gap:1.05rem;
+  opacity:0;pointer-events:none;transition:opacity .3s ease}
+body.past-hero:not(.at-outro) .dots{opacity:1;pointer-events:auto}
+.chalk .dots a{display:block;width:1rem;height:1rem;color:var(--faint);transition:color .15s,scale .15s}
+.chalk .dots a:hover{color:var(--soft);scale:1.2}
+.chalk .dots a.on{color:var(--yellow)}
+.chalk .dots svg{display:block;width:100%;height:100%}
+.chalk .dots .dotfill{opacity:0;transition:opacity .2s}
+.chalk .dots a.on .dotfill{opacity:.9}
+@media (max-width:1023px){.chalk .dots{display:none}}
+
+/* ── back to top ── */
+.chalk .totop{font-size:.98rem}
+
 /* ── floating "book ↗" (shows between hero and outro) ── */
 .chalk .float-book{position:fixed;right:1.4rem;bottom:1.4rem;z-index:50;font-size:1.15rem;padding:.4rem 1.05rem .5rem;
   background:rgba(16,25,21,0.88);border-color:rgba(240,224,162,0.75);color:var(--yellow);

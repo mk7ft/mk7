@@ -3,13 +3,15 @@
 import { useEffect } from "react";
 
 /**
- * Scroll effects, all class-toggling only (styles live in globals.css):
+ * Scroll effects, all class/var-toggling only (styles in globals.css):
  * - Adds `anim` to <html> so CSS can hide .reveal elements pre-scroll
  *   (no-JS visitors see everything, nothing depends on this running).
  * - IntersectionObserver marks .reveal elements `inview` once, which
  *   triggers the chalk draw-in animations.
- * - Toggles `past-hero` / `at-outro` on <body> to show the floating
- *   "book ↗" button only in the middle of the page.
+ * - Toggles `past-hero` / `at-outro` on <body>: floating "book ↗"
+ *   button and the section dots show only mid-page.
+ * - Sets --sp (0..1 scroll progress) for the chalk progress line.
+ * - Marks the current section's dot with `.on`.
  */
 export default function ScrollFx() {
   useEffect(() => {
@@ -42,10 +44,39 @@ export default function ScrollFx() {
     );
     if (outro) outroWatch.observe(outro);
 
+    // chalk progress line
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? window.scrollY / max : 0;
+      document.documentElement.style.setProperty("--sp", p.toFixed(4));
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // section dots — highlight the section crossing the viewport middle
+    const dots = [...document.querySelectorAll<HTMLAnchorElement>(".dots a")];
+    const current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const id = (e.target as HTMLElement).id;
+            dots.forEach((d) => d.classList.toggle("on", d.dataset.target === id));
+          }
+        });
+      },
+      { rootMargin: "-42% 0px -52% 0px", threshold: 0 },
+    );
+    dots.forEach((d) => {
+      const sec = document.getElementById(d.dataset.target || "");
+      if (sec) current.observe(sec);
+    });
+
     return () => {
       reveal.disconnect();
       heroWatch.disconnect();
       outroWatch.disconnect();
+      current.disconnect();
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 

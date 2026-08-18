@@ -247,8 +247,9 @@ function BlockView({ b }: { b: Block }) {
 
 export default function Home() {
   return (
-    <div className="chalk">
+    <div className="chalk" id="top">
       <ChalkDefs />
+      <div className="progress" aria-hidden="true" />
       <div className="board" aria-hidden="true" />
       <div className="grain" aria-hidden="true" />
 
@@ -347,11 +348,23 @@ export default function Home() {
             <a className="flogo" href="https://mk7ft.com" aria-label="MK7 — home"><img src={LOGO} alt="MK7" /></a>
             <span>{PROFILE.location}</span>
             <span>{PROFILE.copyright}</span>
+            <a className="totop" href="#top">back to top ↑</a>
           </div>
         </footer>
       </div>
 
       <button className="btn-chalk float-book" {...calAttrs} aria-label="book a call">book ↗</button>
+
+      <nav className="dots" aria-label="sections">
+        {SECTIONS.map((s) => (
+          <a key={s.id} href={`#${s.id}`} data-target={s.id} aria-label={s.title}>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path pathLength={1} d="M12 3.5 C 17 3, 20.5 7, 20.5 12 C 20.5 17, 17 20.5, 12 20.5 C 7 20.5, 3.5 17, 3.5 12 C 3.5 7.5, 7.5 4, 12 3.5 Z" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" filter="url(#chalk-soft)" />
+              <circle className="dotfill" cx="12" cy="12" r="4.6" fill="currentColor" />
+            </svg>
+          </a>
+        ))}
+      </nav>
 
       <CalInit />
       <ScrollFx />
