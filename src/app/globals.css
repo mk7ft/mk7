@@ -215,10 +215,10 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   border-radius:0 3px 3px 0;box-shadow:0 0 7px rgba(240,224,162,0.35);pointer-events:none}
 
 /* ── section dots (desktop, mid-page only) ── */
-.chalk .dots{position:fixed;right:1.25rem;top:50%;translate:0 -50%;z-index:50;display:flex;flex-direction:column;gap:1.05rem;
+.chalk .dots{position:fixed;right:.95rem;top:50%;translate:0 -50%;z-index:50;display:flex;flex-direction:column;gap:.55rem;
   opacity:0;pointer-events:none;transition:opacity .3s ease}
-body.past-hero:not(.at-outro) .dots{opacity:1;pointer-events:auto}
-.chalk .dots a{display:block;width:1rem;height:1rem;color:var(--faint);transition:color .15s,scale .15s}
+body.past-hero .dots{opacity:1;pointer-events:auto}
+.chalk .dots a{display:block;width:1.7rem;height:1.7rem;padding:.35rem;color:var(--faint);transition:color .15s,scale .15s}
 .chalk .dots a:hover{color:var(--soft);scale:1.2}
 .chalk .dots a.on{color:var(--yellow)}
 .chalk .dots svg{display:block;width:100%;height:100%}

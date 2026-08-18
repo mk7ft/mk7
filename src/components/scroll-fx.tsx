@@ -44,13 +44,27 @@ export default function ScrollFx() {
     );
     if (outro) outroWatch.observe(outro);
 
-    // chalk progress line
+    // chalk progress line — rAF lerp so it glides instead of stepping
+    let spTarget = 0;
+    let spCur = 0;
+    let spRaf = 0;
+    const spTick = () => {
+      spCur += (spTarget - spCur) * 0.16;
+      if (Math.abs(spTarget - spCur) < 0.0008) {
+        spCur = spTarget;
+        spRaf = 0;
+      } else {
+        spRaf = requestAnimationFrame(spTick);
+      }
+      document.documentElement.style.setProperty("--sp", spCur.toFixed(4));
+    };
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      const p = max > 0 ? window.scrollY / max : 0;
-      document.documentElement.style.setProperty("--sp", p.toFixed(4));
+      spTarget = max > 0 ? window.scrollY / max : 0;
+      if (!spRaf) spRaf = requestAnimationFrame(spTick);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     onScroll();
 
     // section dots — highlight the section crossing the viewport middle
@@ -76,7 +90,9 @@ export default function ScrollFx() {
       heroWatch.disconnect();
       outroWatch.disconnect();
       current.disconnect();
+      if (spRaf) cancelAnimationFrame(spRaf);
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, []);
 
