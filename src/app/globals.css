@@ -124,7 +124,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   text-shadow:none;background:rgba(237,234,225,0.04)}
 
 /* side-by-side columns with a vertical chalk divider */
-.chalk .duo{display:grid;grid-template-columns:1fr auto 1.02fr;gap:0 clamp(1.1rem,2.6vw,2rem);align-items:start;margin-top:.3rem}
+.chalk .duo{display:grid;grid-template-columns:1fr auto 1.02fr;gap:0 clamp(1.1rem,2.6vw,2rem);align-items:center;margin-top:.3rem}
 .chalk .duo-col{min-width:0}
 .chalk .vdiv{width:.85rem;height:100%;min-height:11rem;align-self:stretch;color:rgba(237,234,225,0.3)}
 .chalk .duo .tags{max-width:none}

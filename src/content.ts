@@ -142,8 +142,9 @@ export const SECTIONS: Section[] = [
           { kind: "lead", text: "and have direct access to" },
           { kind: "big", n: "25,000+", label: "students" },
           {
-            kind: "text",
-            runs: [{ text: "USF · UT · UF · UCF · UM · FSU and other major FL universities" }],
+            kind: "tags",
+            items: ["USF", "UT", "UF", "UCF", "UM", "FSU"],
+            suffix: "and other major FL universities",
           },
         ],
       },
@@ -186,15 +187,9 @@ export const SECTIONS: Section[] = [
       {
         kind: "text",
         runs: [
-          { text: "i have a solid understanding of what, how, and where to build." },
-        ],
-      },
-      {
-        kind: "text",
-        runs: [
-          { text: "i'll be " },
-          { text: "the unfair advantage", hi: true },
-          { text: " when building your company." },
+          { text: "i have a solid understanding of what, how, and where to build - " },
+          { text: "your unfair advantage", hi: true },
+          { text: "." },
         ],
       },
     ],
