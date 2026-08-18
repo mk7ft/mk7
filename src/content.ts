@@ -117,7 +117,7 @@ export const SECTIONS: Section[] = [
   {
     id: "network",
     num: "2",
-    title: "operations + connect",
+    title: "operations + connections",
     body: [
       {
         kind: "duo",
